@@ -1,21 +1,34 @@
 package org.example.dominios;
 
-public class Aluno {
-    private final String nome;
-    private final String matricula;
-
-    public Aluno(String nome, String matricula) {
-        this.nome = nome;
-        this.matricula = matricula;
+public class Aluno extends Usuario implements IUsuarioAutenticacao{
+    private final TipoAluno tipoAluno;
+    public Aluno(String nome, String matricula, TipoAluno tipoAluno) {
+        super(nome, matricula);
+        this.tipoAluno = tipoAluno;
     }
 
-    public String getNome() {
-        return this.nome;
+    public TipoAluno getTipoAluno() {
+        return tipoAluno;
     }
 
-    public String getMatricula() {
-        return matricula;
+    protected String senha;
+
+
+    @Override
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
+    @Override
+    public boolean autenticar(String matricula, String senha) {
+        return true;
+    }
 
+    @Override
+    public String toString() {
+        return "Nome: " + nome +
+                "\nMatricula: " + matricula +
+                "\nTipo Aluno: " + tipoAluno.getDescricao() +
+                "\nSenha: " + senha;
+    }
 }

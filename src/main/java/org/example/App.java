@@ -1,11 +1,11 @@
 package org.example;
 
+import org.example.dominios.Aluno;
 import org.example.dominios.Init;
 import org.example.dominios.Livro;
+import org.example.repository.AlunosRepository;
 import org.example.repository.LivroRepository;
-import org.example.telas.CriarLivro;
-import org.example.telas.TelaBuscarLivro;
-import org.example.telas.TelaRealizarEmprestimo;
+import org.example.telas.*;
 
 import java.util.Scanner;
 
@@ -41,12 +41,12 @@ public class App {
                     System.out.println("Saindo...");
                     System.exit(1);
                 case 1:
-                Livro livro = CriarLivro.executar(sc);
-                LivroRepository.addLivro(livro);
+                    Livro livro = CriarLivro.executar(sc);
+                    LivroRepository.addLivro(livro);
                     break;
                 case 2:
-//                    Aluno aluno = InputDadosAluno.executar(sc);
-//                    AlunosRepository.gravarAlunoRepositorio(aluno);
+                    Aluno aluno = InputDadosAluno.executar(sc);
+                    AlunosRepository.gravarAlunoRepositorio(aluno);
                     break;
                 case 3:
                     TelaRealizarEmprestimo.executar(sc);
@@ -58,8 +58,8 @@ public class App {
                     TelaBuscarLivro.executar(sc);
                     break;
                 case 6:
-                    //aluno = ProcurarAluno.executar(sc);
-                   // System.out.println(aluno.toString());
+                    aluno = TelaBuscarAluno.executar(sc);
+                    System.out.println(aluno.toString());
                     break;
                 default:
                     System.out.println("Opção inválida! \n Escolha uma das opções demonstradas no menu inicial!");

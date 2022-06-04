@@ -1,6 +1,7 @@
 package org.example.telas;
 
 import org.example.dominios.Aluno;
+import org.example.dominios.TipoAluno;
 
 import java.util.Scanner;
 
@@ -11,8 +12,20 @@ public class InputDadosAluno {
         String nome = scanner.next();
         System.out.println("Insira a matrícula:");
         String matricula = scanner.next();
+        System.out.println("Insira tipo de aluno");
 
-        return new Aluno(nome,matricula);
+        for (TipoAluno tipoAluno : TipoAluno.values()){
+            System.out.println(tipoAluno.getCode() + " - " + tipoAluno.getDescricao());
+        }
 
+        int option = scanner.nextInt();
+        TipoAluno tipoAluno = TipoAluno.valueOfCode(option);
+        Aluno aluno = new Aluno(nome, matricula, tipoAluno);
+
+        System.out.println("Insira a senha do aluno:");
+        String senha = scanner.next();
+        aluno.setSenha(senha);
+
+        return aluno;
     }
 }

@@ -33,11 +33,14 @@ public class Init {
 //            System.out.println(livrosCadastrado.getTitulo());
 //        }
 
-        Aluno aluno1 = new Aluno("aluno1","12345");
-        Aluno aluno2 = new Aluno("aluno2","23456");
-        Aluno aluno3 = new Aluno("aluno3","34567");
+        Aluno aluno1 = new Aluno("aluno1","12345",TipoAluno.GR);
+        Aluno aluno2 = new Aluno("aluno2","23456",TipoAluno.MS);
+        Aluno aluno3 = new Aluno("aluno3","34567",TipoAluno.DT);
         AlunosRepository.gravarAlunoRepositorio(aluno1);
         AlunosRepository.gravarAlunoRepositorio(aluno2);
         AlunosRepository.gravarAlunoRepositorio(aluno3);
+
+        Bibliotecario bibliotecario1 = new Bibliotecario("bibliotecario1","b123");
+
     }
 }
